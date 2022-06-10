@@ -60,7 +60,16 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 Demonstrate your understanding of this week's concepts by answering the following questions:
 
 1. What is the DOM?
+data represenation (object-oriented representation) of what makes up web page. allows programming languages to interact with web page. 
+
 2. What is an event?
+something that happens to an html element
+
 3. What is an event listener?
+added to html element to take action based on event and circumstances 
+
 4. Why would we convert a NodeList into an Array?
+to be able to use array prototypes
+
 5. What is a component?
+a function that serves one purpose well and brings programming languages together

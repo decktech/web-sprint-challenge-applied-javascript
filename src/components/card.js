@@ -1,4 +1,40 @@
+import axios from 'axios'
+
+// const test = {
+//   headline: 'adsf',
+//   authorPhoto: '',
+//   authorName: 'asdfname'
+// }
+
 const Card = (article) => {
+  const card = document.createElement('div');
+  const headline = document.createElement('div');
+  const author = document.createElement('div');
+  const imgContainer = document.createElement('div');
+  const authorPhoto = document.createElement('img');
+  const authorName = document.createElement('span');
+
+  card.classList.add('card');
+  headline.classList.add('headline');
+  author.classList.add('author');
+  imgContainer.classList.add('img-container');
+
+  headline.textContent = article.headline;
+  authorPhoto.src = article.authorPhoto;
+  authorName.textContent = article.authorName;
+
+  card.appendChild(headline);
+  card.appendChild(author);
+  author.appendChild(imgContainer);
+  author.appendChild(authorName);
+  imgContainer.appendChild(authorPhoto);
+
+  card.addEventListener("click", () => {
+    console.log(article.headline.textContent)
+  })
+
+  return card;
+
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -19,7 +55,24 @@ const Card = (article) => {
   //
 }
 
+// console.log(Card(test))
+
+
 const cardAppender = (selector) => {
+  axios.get(`http://localhost:5001/api/articles`)
+    .then(res => {
+      const target = res.data.articles;
+      // console.log(target);
+      // console.log(Object.values(target))
+      const targetValues = Object.values(target);
+      targetValues.forEach(art => {
+        // console.log(art)
+        art.forEach(a => {
+          document.querySelector(selector).appendChild(Card(a));
+        })
+      })
+    })
+    
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
@@ -29,5 +82,8 @@ const cardAppender = (selector) => {
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
 }
+
+// cardAppender('body')
+// console.log(axios.get(`http://localhost:5001/api/articles`))
 
 export { Card, cardAppender }

@@ -33,7 +33,7 @@ const Header = (title, date, temp) => {
   //  </div>
   //
 }
-console.log(Header('tile', 'date', 'temp'))
+// console.log(Header('tile', 'date', 'temp'))
 
 
 const headerAppender = (selector) => {
