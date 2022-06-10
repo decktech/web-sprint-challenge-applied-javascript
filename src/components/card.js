@@ -30,7 +30,7 @@ const Card = (article) => {
   imgContainer.appendChild(authorPhoto);
 
   card.addEventListener("click", () => {
-    console.log(article.headline.textContent)
+    console.log(article.headline)
   })
 
   return card;
